@@ -9,4 +9,5 @@ export enum Color {
   DARK_SECONDARY= "#37474F",
   DARK_TERTIARY= "#455A64",
   DARK_QUATERNARY= "#869FB2",
+  ORANGE = "#D48221"
 };

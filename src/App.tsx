@@ -5,6 +5,7 @@ import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 
 import { Color } from "constants/Color";
 import { HomePage } from "pages/HomePage";
+import {ProfilePage} from "pages/ProfilePage";
 
 import "./App.css";
 
@@ -18,7 +19,7 @@ const theme = createMuiTheme({
       contrastText: Color.DARK_PRIMARY,
     },
     secondary: {
-      main: Color.GREEN_TERTIARY,
+      main: Color.GREEN_SECONDARY,
       contrastText: Color.WHITE,
     },
     success: {
@@ -33,6 +34,9 @@ function App() {
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <Switch>
+          <Route path="/profile">
+            <ProfilePage />
+          </Route>
           <Route path="/">
             <HomePage />
           </Route>
