@@ -24,7 +24,7 @@ type Props = {
   perHourPay: number;
   jobCategory: JobCategory;
   location: string;
-  icon?: HTMLImageElement;
+  icon?: any;
   handleApply: (jobTitle: string) => void;
 };
 
@@ -115,7 +115,7 @@ const FixedHeightGridItem = styled(Grid)<FixedHeightGridItemProps>`
 
 const JobTitleText = styled.p`
   text-align: start;
-  padding: 0 40px 0 0px;
+  padding: 0 40px 0 10px;
   font-size: ${FontSize.TITLE};
   font-weight: ${FontWeight.SEMI_BOLD};
   color: ${Color.DARK_PRIMARY};
@@ -123,6 +123,7 @@ const JobTitleText = styled.p`
 
 const JobDescription = styled.p`
   margin-top: 0px;
+  padding-left: 10px;
   font-size: ${FontSize.BODY};
   font-weight: ${FontWeight.NORMAL};
   color: ${Color.DARK_QUATERNARY};

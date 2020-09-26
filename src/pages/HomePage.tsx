@@ -1,7 +1,7 @@
 import { JobCard } from "components/JobCard";
 import { PageContainer } from "components/PageContainer";
 import { JobCategory } from "constants/JobCategory";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import moment from "moment";
 
@@ -55,6 +55,14 @@ export function HomePage() {
             postDateTime={moment(postDateTime.toString(), "YYYY-MM-DD HHmm")}
             jobCategory={jobCategory as JobCategory}
             perHourPay={perHourPay}
+            icon={
+              <img
+                width={100}
+                height={100}
+                src={iconPath}
+                alt="No Icon Available"
+              />
+            }
           />
         )
       )}
