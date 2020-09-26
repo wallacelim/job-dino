@@ -29,8 +29,7 @@ export function SimpleBottomNavigation() {
 }
 
 export const StyledBottomNavigation = styled(BottomNavigation)`
-  position: absolute;
   height: 98px;
-  bottom: 0;
+  justify-self: flex-end;
   width: 100vw;
 `;

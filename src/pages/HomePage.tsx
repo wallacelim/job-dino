@@ -8,10 +8,15 @@ import moment from "moment";
 
 import { SimpleBottomNavigation } from "../components/BottomNavigation";
 import jobs from "constants/jobs.json";
+import { FontSize } from "constants/FontSize";
+import { FontWeight } from "constants/FontWeight";
+import { Color } from "constants/Color";
+import styled from "styled-components";
 
 export function HomePage() {
   return (
     <PageContainer>
+      <PageTitle>Discover Jobs</PageTitle>
       {jobs.map(
         ({
           jobTitle,
@@ -42,3 +47,21 @@ export function HomePage() {
     </PageContainer>
   );
 }
+
+const PageTitle = styled.p`
+  font-size: ${FontSize.HEADER};
+  font-weight: ${FontWeight.NORMAL};
+  color: ${Color.WHITE};
+
+  font-family: "Viga";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 132%;
+
+  display: flex;
+  text-align: start;
+  align-items: center;
+  letter-spacing: 0.25px;
+  text-shadow: 0px 4px 10px #869fb2;
+`;
