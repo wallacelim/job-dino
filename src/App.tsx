@@ -1,9 +1,12 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import { Button } from "components/Button";
-import { Color } from "constants/Color";
+import { Route, BrowserRouter, Switch } from "react-router-dom";
+
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
+
+import { Color } from "constants/Color";
+import { HomePage } from "pages/HomePage";
+
+import "./App.css";
 
 const theme = createMuiTheme({
   palette: {
@@ -25,13 +28,13 @@ const theme = createMuiTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>Welcome to JobDino</p>
-          <Button textContent="Start App" clickHandler={() => {}}/>
-        </header>
-      </div>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/">
+            <HomePage />
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }
