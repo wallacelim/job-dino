@@ -5,24 +5,22 @@ import styled from "styled-components";
 import { Chip } from "@material-ui/core";
 import FaceIcon from "@material-ui/icons/Face";
 import { JobCategory } from "constants/JobCategory";
-import { IndustryExperienceLevel } from "constants/IndustryExperienceLevel";
 import { Color } from "constants/Color";
 import { FontSize } from "constants/FontSize";
 import { FontWeight } from "constants/FontWeight";
 
 type Props = {
   jobCategory: JobCategory;
-  level: IndustryExperienceLevel;
 };
 
-export function IndustryExperienceBadge({ jobCategory, level }: Props) {
+export function JobCategoryChip({ jobCategory }: Props) {
   return (
     <Chip
       color="secondary"
       icon={<FaceIcon />}
       label={
         <StyledChipText>
-          {jobCategory} {level}
+          {jobCategory}
         </StyledChipText>
       }
     />

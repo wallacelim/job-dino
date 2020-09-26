@@ -30,6 +30,7 @@ export function SimpleBottomNavigation() {
 
 export const StyledBottomNavigation = styled(BottomNavigation)`
   position: absolute;
+  height: 98px;
   bottom: 0;
   width: 100vw;
 `;
