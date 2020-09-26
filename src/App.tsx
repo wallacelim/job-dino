@@ -9,6 +9,9 @@ import { HomePage } from "pages/HomePage";
 import "./App.css";
 
 const theme = createMuiTheme({
+  typography: {
+    fontFamily: ["Montserrat", "sans-serif", "Roboto"].join(","),
+  },
   palette: {
     primary: {
       main: Color.WHITE,
@@ -16,7 +19,7 @@ const theme = createMuiTheme({
     },
     secondary: {
       main: Color.GREEN_TERTIARY,
-      contrastText: Color.DARK_PRIMARY,
+      contrastText: Color.WHITE,
     },
     success: {
       main: Color.GREEN_PRIMARY,
