@@ -2,22 +2,22 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { Button } from "components/Button";
-import { Colors } from "constants/Colors";
+import { Color } from "constants/Color";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: Colors.WHITE,
-      contrastText: Colors.DARK_PRIMARY,
+      main: Color.WHITE,
+      contrastText: Color.DARK_PRIMARY,
     },
     secondary: {
-      main: Colors.GREEN_TERTIARY,
-      contrastText: Colors.DARK_PRIMARY,
+      main: Color.GREEN_TERTIARY,
+      contrastText: Color.DARK_PRIMARY,
     },
     success: {
-      main: Colors.GREEN_PRIMARY,
-      contrastText: Colors.WHITE,
+      main: Color.GREEN_PRIMARY,
+      contrastText: Color.WHITE,
     },
   },
 });
