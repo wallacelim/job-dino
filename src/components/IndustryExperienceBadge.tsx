@@ -11,6 +11,7 @@ import { IndustryExperienceLevel } from "constants/IndustryExperienceLevel";
 import { Color } from "constants/Color";
 import { FontSize } from "constants/FontSize";
 import { FontWeight } from "constants/FontWeight";
+import { OverridableComponent } from "@material-ui/core/OverridableComponent";
 
 type Props = {
   jobCategory: JobCategory;
@@ -20,6 +21,7 @@ type Props = {
 export function IndustryExperienceBadge({ jobCategory, level }: Props) {
 
   const [icon, setIcon] = useState<JSX.Element | undefined>()
+  const [styleHover, setStyleHover] = useState<Object>()
 
   useEffect(() => {
     switch(jobCategory) {
@@ -34,13 +36,20 @@ export function IndustryExperienceBadge({ jobCategory, level }: Props) {
     }
   }, [jobCategory])
 
+  useEffect(() => {
+    if (level === IndustryExperienceLevel.ADVANCED) {
+      return setStyleHover({ filter: "drop-shadow(4px 4px 4px #7DEBD9)" })
+    }
+  }, [level])
+
   return (
     <Chip
       color="secondary"
       icon={icon}
+      style={styleHover}
       label={
         <StyledChipText>
-          {jobCategory} {level}
+          {jobCategory} {level + 1}
         </StyledChipText>
       }
     />
