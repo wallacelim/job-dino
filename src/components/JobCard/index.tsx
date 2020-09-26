@@ -4,14 +4,15 @@ import { Moment } from "moment";
 import { JobCategory } from "constants/JobCategory";
 import logo from "../../logo.svg";
 import { Grid } from "@material-ui/core";
+
 import styled from "styled-components";
 import { FontSize } from "constants/FontSize";
 import { Color } from "constants/Color";
 import { FontWeight } from "constants/FontWeight";
 import moment from "moment";
 import { JobCategoryChip } from "components/JobCategoryChip";
-import { IndustryExperienceBadge } from "components/IndustryExperienceBadge";
-import { IndustryExperienceLevel } from "constants/IndustryExperienceLevel";
+import { useSpring } from "react-spring";
+import { useDrag } from "react-use-gesture";
 
 type Props = {
   jobTitle: string;
@@ -24,6 +25,7 @@ type Props = {
   jobCategory: JobCategory;
   location: string;
   icon?: HTMLImageElement;
+  handleApply: (jobTitle: string) => void;
 };
 
 export function JobCard({
@@ -37,9 +39,24 @@ export function JobCard({
   endTime,
   jobCategory,
   perHourPay,
+  handleApply,
 }: Props) {
+  const [{ x, y }, set] = useSpring(() => ({ x: 0, y: 0 }));
+
+  // Set the drag hook and define component movement based on gesture data
+  const bind = useDrag(({ down, movement: [mx, my] }) => {
+    if (!down && Math.abs(mx) > 200) {
+      set({
+        x: Math.sign(mx) * 1000,
+        y: my,
+      });
+      return handleApply(jobTitle);
+    }
+    set({ x: down ? mx : 0, y: down ? my : 0 });
+  });
+
   return (
-    <JobCardContainer>
+    <JobCardContainer {...bind()} style={{ x, y }}>
       <GridContainer
         container
         direction="row"

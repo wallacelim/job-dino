@@ -18,4 +18,9 @@ export const PageContainer = styled.div<Props>`
     partialGradient
       ? `linear-gradient(360deg, ${Color.WHITE} 84.9%, ${Color.GREEN_SECONDARY} 99.48%)`
       : `linear-gradient(360deg, ${Color.WHITE} 0%, ${Color.GREEN_SECONDARY} 99.48%)`};
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 `;

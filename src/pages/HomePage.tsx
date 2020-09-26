@@ -1,21 +1,35 @@
-import { IndustryExperienceBadge } from "components/IndustryExperienceBadge";
 import { JobCard } from "components/JobCard";
 import { PageContainer } from "components/PageContainer";
 import { JobCategory } from "constants/JobCategory";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import moment from "moment";
 
+import { Alert, AlertTitle } from "@material-ui/lab";
+
 import { SimpleBottomNavigation } from "../components/BottomNavigation";
-import jobs from "constants/jobs.json";
+import jobs from "../mockData/jobs.json";
 import { FontSize } from "constants/FontSize";
 import { FontWeight } from "constants/FontWeight";
 import { Color } from "constants/Color";
 import styled from "styled-components";
 
 export function HomePage() {
+  const [appliedJobTitle, setAppliedJobTitile] = useState("");
+  const flashSuccessfulApplicationAlert = async (jobTitle: string) => {
+    await new Promise((resolve) => setTimeout(() => resolve(), 300));
+    setAppliedJobTitile(jobTitle);
+    setTimeout(() => setAppliedJobTitile(""), 2000);
+  };
+
   return (
     <PageContainer>
+      {appliedJobTitle && (
+        <StyledAlert severity="success">
+          <AlertTitle>Success</AlertTitle>
+          You have successfully applied for <strong>{appliedJobTitle}</strong>
+        </StyledAlert>
+      )}
       <PageTitle>Discover Jobs</PageTitle>
       {jobs.map(
         ({
@@ -31,6 +45,7 @@ export function HomePage() {
           perHourPay,
         }) => (
           <JobCard
+            handleApply={flashSuccessfulApplicationAlert}
             jobTitle={jobTitle}
             posterName={posterName}
             location={location}
@@ -64,4 +79,9 @@ const PageTitle = styled.p`
   align-items: center;
   letter-spacing: 0.25px;
   text-shadow: 0px 4px 10px #869fb2;
+`;
+
+const StyledAlert = styled(Alert)`
+  position: absolute;
+  top: 15%;
 `;

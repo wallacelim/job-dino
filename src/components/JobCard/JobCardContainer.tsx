@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { Color } from "constants/Color";
+import { animated } from "react-spring";
 
-export const JobCardContainer = styled.div`
+export const JobCardContainer = styled(animated.div)`
   width: 334px;
   height: 421px;
   background: ${Color.WHITE};
