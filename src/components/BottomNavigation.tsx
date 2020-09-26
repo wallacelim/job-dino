@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from 'react-router-dom';
 
-import BottomNavigation, { BottomNavigationTypeMap } from "@material-ui/core/BottomNavigation";
+import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
 import PersonOutlineIcon from "@material-ui/icons/PersonOutline";
 import BusinessCenterIcon from "@material-ui/icons/BusinessCenter";
@@ -10,7 +10,6 @@ import { Color } from "../constants/Color";
 
 import logo from "../logo.svg";
 import darkLogo from "../logo_dark.svg";
-import { OverridableComponent } from "@material-ui/core/OverridableComponent";
 
 export function SimpleBottomNavigation() {
   let history = useHistory();
