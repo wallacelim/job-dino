@@ -3,7 +3,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { Chip } from "@material-ui/core";
-import FaceIcon from "@material-ui/icons/Face";
+import ViewCompact from "@material-ui/icons/ViewCompact";
 import { JobCategory } from "constants/JobCategory";
 import { Color } from "constants/Color";
 import { FontSize } from "constants/FontSize";
@@ -17,7 +17,7 @@ export function JobCategoryChip({ jobCategory }: Props) {
   return (
     <Chip
       color="secondary"
-      icon={<FaceIcon />}
+      icon={<ViewCompact />}
       label={
         <StyledChipText>
           {jobCategory}

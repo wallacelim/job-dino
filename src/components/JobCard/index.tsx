@@ -96,7 +96,7 @@ export function JobCard({
           </JobDescription>
         </FixedHeightGridItem>
         <FixedHeightGridItem item xs={6}>
-          <JobCategoryChip jobCategory={JobCategory.FOOD_AND_BEVERAGE} />
+          <JobCategoryChip jobCategory={jobCategory} />
         </FixedHeightGridItem>
         <FixedHeightGridItem item xs={6}>
           <JobCompensationText>${perHourPay} / Hour</JobCompensationText>

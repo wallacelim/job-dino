@@ -88,7 +88,9 @@ const PageTitle = styled.p`
   line-height: 132%;
 
   display: flex;
-  text-align: start;
+  width: stretch;
+  padding: 1em;
+  text-align: left;
   align-items: center;
   letter-spacing: 0.25px;
   text-shadow: 0px 4px 10px #869fb2;
