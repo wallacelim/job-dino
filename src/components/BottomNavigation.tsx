@@ -11,7 +11,7 @@ import { Color } from "../constants/Color";
 import logo from "../logo.svg";
 
 export function SimpleBottomNavigation() {
-  const [value, setValue] = React.useState("home");
+  const [value, setValue] = React.useState(window.location.pathname);
 
   return (
     <StyledBottomNavigation
@@ -23,7 +23,7 @@ export function SimpleBottomNavigation() {
       <BottomNavigationAction label="Home" value="home" component={Link} to="/" 
         icon={<img src={logo} width={64} height={64} alt="JobDino Icon" />} />
       <BottomNavigationAction label="My Jobs" value="myJobs" icon={<StyledBusinessCenterIcon />}/>
-      <BottomNavigationAction label="Profile" value="profile" icon={<StyledPersonOutlineIcon />} />
+      <BottomNavigationAction label="Profile" value="profile" component={Link} to="/profile" icon={<StyledPersonOutlineIcon />} />
     </StyledBottomNavigation>
   );
 }
