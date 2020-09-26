@@ -1,0 +1,5 @@
+export enum JobCategory {
+    LOGISTICS = "LOGISTICS",
+    FOOD_AND_BEVERAGE = "FOOD_AND_BEVERAGE",
+    HOSPITALITY = "HOSPITALITY",
+}
