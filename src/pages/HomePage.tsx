@@ -16,10 +16,12 @@ import styled from "styled-components";
 
 export function HomePage() {
   const [appliedJobTitle, setAppliedJobTitile] = useState("");
-  const flashSuccessfulApplicationAlert = async (jobTitle: string) => {
+  const [removedJobIds, setRemovedJobIds] = useState<number[]>([]);
+  const flashSuccessfulApplicationAlert = async (jobTitle: string, id: number) => {
     await new Promise((resolve) => setTimeout(() => resolve(), 300));
     setAppliedJobTitile(jobTitle);
     setTimeout(() => setAppliedJobTitile(""), 2000);
+    setRemovedJobIds((prevJobIds)=> [...prevJobIds, id])
   };
 
   return (
@@ -31,8 +33,9 @@ export function HomePage() {
         </StyledAlert>
       )}
       <PageTitle>Discover Jobs</PageTitle>
-      {jobs.map(
+      {jobs.filter(job => !removedJobIds.includes(job.id)).map(
         ({
+          id,
           jobTitle,
           posterName,
           iconPath,
@@ -45,6 +48,8 @@ export function HomePage() {
           perHourPay,
         }) => (
           <JobCard
+            index={id}
+            key={id}
             handleApply={flashSuccessfulApplicationAlert}
             jobTitle={jobTitle}
             posterName={posterName}

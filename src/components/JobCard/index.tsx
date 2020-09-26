@@ -15,6 +15,7 @@ import { useSpring } from "react-spring";
 import { useDrag } from "react-use-gesture";
 
 type Props = {
+  index: number;
   jobTitle: string;
   posterName: string;
   startTime: Moment;
@@ -25,10 +26,11 @@ type Props = {
   jobCategory: JobCategory;
   location: string;
   icon?: any;
-  handleApply: (jobTitle: string) => void;
+  handleApply: (jobTitle: string, id: number) => void;
 };
 
 export function JobCard({
+  index,
   jobTitle,
   posterName,
   icon,
@@ -47,16 +49,19 @@ export function JobCard({
   const bind = useDrag(({ down, movement: [mx, my] }) => {
     if (!down && Math.abs(mx) > 200) {
       set({
-        x: Math.sign(mx) * 1000,
+        x: Math.sign(mx) * 500,
         y: my,
       });
-      return handleApply(jobTitle);
+      if (mx > 0) {
+        return handleApply(jobTitle, index);
+      }
+      return;
     }
     set({ x: down ? mx : 0, y: down ? my : 0 });
   });
 
   return (
-    <JobCardContainer {...bind()} style={{ x, y }}>
+    <JobCardContainer {...bind()} style={{ x, y, transform: `rotateZ(${Math.max(-5, -index)}deg)` }}>
       <GridContainer
         container
         direction="row"

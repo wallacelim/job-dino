@@ -3,6 +3,8 @@ import { Color } from "constants/Color";
 import { animated } from "react-spring";
 
 export const JobCardContainer = styled(animated.div)`
+  position: absolute;
+  top: 250px;
   width: 334px;
   height: 421px;
   background: ${Color.WHITE};
